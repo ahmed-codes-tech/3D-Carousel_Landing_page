@@ -1,0 +1,146 @@
+:root {
+    --black: #0f0f0f;
+    --gray: #3f3f3f;
+    --white: #fff;
+}
+
+html body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: black;
+    background-image: url(./Images/digital-art-dark-cosmic-night-sky.jpg);
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar {
+    margin: 0 auto;
+    width: fit-content;
+    position:absolute;
+    top: 5%;
+    left: 29%;
+    border: 1px solid var(--gray);
+    border-radius: 500px;
+}
+
+.navbar a {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px 50px;  
+    &.active {
+        anchor-name: --active;
+        color: black;
+    }  
+}
+
+.bubble {
+    background: white;
+    z-index: -1;
+    /* position-anchor: --active; */
+    border-radius: 400px;
+    top: anchor(top);
+    right: anchor(right);
+    bottom: anchor(bottom);
+    left: anchor(left);
+    position: absolute;
+    transition: all 0.35s ease;
+    &.active {
+        position-anchor: --active;
+    }
+
+    &.hover {
+        background: #3f3f3f;
+    }
+    
+}
+
+.banner {
+    width: 100%; 
+    height: 100vh;
+    text-align: center;
+    overflow: visible;
+    position: relative;
+    perspective: 1000px;
+}
+
+.banner .slider {
+    position: absolute;
+    width: 280px;
+    height: 250px;
+    top: 20%;
+    left: calc(50% - 100px);
+    transform: translate(-50%, -50%);
+    transform-style: preserve-3d;
+    animation: autoRun 20s linear infinite;
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-4deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-4deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform:    rotateY(
+        calc(
+             (var(--position) - 1) * (360deg / var(--quantity))))
+          translateZ(550px);
+}
+
+.banner .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} 
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    height: 500px;
+}
+
+.bg-img {
+    will-change: transform;
+    transform: translateZ(0);
+    pointer-events: none; /* IMPORTANT if it's decorative */
+  }
+  
+
+.banner::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -200px;       /* start off-screen */
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(22, 21, 21, 0.5) 0%, transparent 60%);
+    filter: blur(120px);
+    border-radius: 50%;
+    animation: lightMove 5s linear infinite;
+    z-index: 0;
+}
+
+/* @keyframes lightMove {
+    0%   { left: -200px; top: 30%; }
+    50%  { left: 50%; top: 50%; }
+    100% { left: 110%; top: 40%; }
+} */
+
+.banner:hover .slider {
+    animation-play-state: paused;
+  }
+  
+@media screen {
+    
+}

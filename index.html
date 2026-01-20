@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="active" href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">Gallery</a>
+        <a href="#">Portfolio</a>
+    </nav>
+
+    <div class="bubble active"></div>
+    <div class="bubble active"></div>
+
+
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="./Images/poster1.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="./Images/poster2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="./Images/poster3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="./Images/poster4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="./Images/poster5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="./Images/poster6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="./Images/poster7.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="./Images/poster8.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="./Images/poster9.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="./Images/poster10.jpg" alt=""></div>
+        </div>
+    </div>
+    <div class="container">
+        <img
+          src="./Images/soldier.png"
+          class="bg-img"
+          alt="Soldier"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+        >
+      </div>
+      
+
+    <script>
+        // const links = document.querySelectorAll(".navbar a");
+        // links.forEach(link => {
+        //     link.addEventListener("click", e => {
+        //         e.preventDefault();
+        //         link.forEach(i => i.classList.remove("active"));
+        //         link.classList.add("active");
+        //     });
+        // });
+
+        const links = document.querySelectorAll(".navbar a");
+
+links.forEach(link => {
+  link.addEventListener("click", e => {
+    e.preventDefault();
+
+    // remove active from all
+    links.forEach(l => l.classList.remove("active"));
+
+    // add active to clicked one
+    link.classList.add("active");
+  });
+});
+
+
+
+    </script>
+</body>
+
+</html>
